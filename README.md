@@ -6,3 +6,6 @@ Back end of this game is implemented in C++.
     2. Generate computer move
 
 Front end of this game has the following functionalities:
+
+
+Changed by QTN.
