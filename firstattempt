@@ -1,4 +1,10 @@
 //
+//  main.cpp
+//  Test2
+//
+//  Created by Apple on 2020/11/19.
+//
+//
 //  GetAndSet.cpp
 //  Front end development
 //
@@ -63,12 +69,12 @@ public:
             for (int j=0;j<7;j++){
                 for (int z=0;z<6;z++){
                     if (full[i][j][z]==true){
-                        s[u].append("Player ");
-                        s[u].append(to_string(i));
-                        s[u].append(" has a piece at Row ");
-                        s[u].append(to_string(j));
-                        s[u].append(" Column ");
-                        s[u].append(to_string(z));
+                   
+                        s[u]+=to_string(i);
+                        s[u]+=" , ";
+                        s[u]+=to_string(j);
+                        s[u]+=" , ";
+                        s[u]+=to_string(z);
                         u++;
                     }
                 }
@@ -77,12 +83,14 @@ public:
         }
         return s;
     }
-    int getLength(){
-        return u;
-    }
+   
+   int getLength(){
+       return u;
+   }
 private:
     bool full [2][7][6];
-    int u=0;
+                int u=0;
+
 };
 
 int main()
@@ -90,12 +98,15 @@ int main()
     Board b=Board();
     int p [2] ={0,0};
     int p1 [2]= {1,1};
+    int p2 [2]={3,3};
     Piece a=Piece(1,p);
     Piece c=Piece(1,p1);
+    Piece d=Piece(0,p2);
     b.Setter(a);
     b.Setter(c);
+    b.Setter(d);
     for (int i=0;i<2;i++){
-            cout<<"Player "<<i<<endl;
+            cout<<"Player "<<i;
         for (int j=0;j<7;j++){
             cout<<endl;
             for (int z=0;z<6;z++){
@@ -104,12 +115,15 @@ int main()
             }
             
         }
-       cout<<endl; 
+       cout<<endl;
         
     }
-    string *t;
+    cout<<endl;
+    
+    string *t=nullptr;
     t=b.Getter();
     for (int i=0;i<b.getLength();i++){
-    cout << t[i]<<endl;
+    
+    cout <<t[i]<<endl;
     }
 }
