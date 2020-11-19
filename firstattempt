@@ -19,6 +19,11 @@
 using namespace std;
 class Piece{
 public:
+    Piece(){
+        this->player=NULL;
+        this->position[0]=NULL;
+        this->position[1]=NULL;
+    }
     Piece(int player,int position[2]){
         this->player=player;
         this->position[0]=position[0];
@@ -30,6 +35,7 @@ public:
     int* getPosition(){
         return position;
     }
+    
 private:
     int player;
     int position [2];
@@ -55,33 +61,40 @@ public:
     bool getFull(int x, int y, int z){
         return full[x][y][z];
     }
+    bool ifTerminates(){
+        for (int i=0;i<2;i++){
+          for (int j=0;j<7;j++){
+              for (int z=0;z<6;z++){
+                  if (full[i][j][z]==false){
+                      return false;
+                  }
+              }
+          }
+        }
+        
+        return true;
+    }
     void Setter (Piece piece){
         ChangeBoard(piece);
     }
-    string * Getter(){
-        string s[92];
-         for (int q=0;q<92;q++){
-         
-                    s[q]="\0";
-             
+    Piece* Getter(){
+        Piece pi[92];
+        for (int o=0;o<92;o++){
+            pi[o]=Piece();
         }
           for (int i=0;i<2;i++){
             for (int j=0;j<7;j++){
                 for (int z=0;z<6;z++){
                     if (full[i][j][z]==true){
-                   
-                        s[u]+=to_string(i);
-                        s[u]+=" , ";
-                        s[u]+=to_string(j);
-                        s[u]+=" , ";
-                        s[u]+=to_string(z);
+                        int pos[2]={j,z};
+                        pi[u]=Piece(i,pos);
                         u++;
                     }
                 }
                 
             }
         }
-        return s;
+        return pi;
     }
    
    int getLength(){
@@ -120,10 +133,10 @@ int main()
     }
     cout<<endl;
     
-    string *t=nullptr;
-    t=b.Getter();
+    Piece* pc=b.Getter();
     for (int i=0;i<b.getLength();i++){
     
-    cout <<t[i]<<endl;
+    cout <<pc->getPlayer()<<" "<<pc->getPosition()[0]<<" "<<pc->getPosition()[1]<<endl;
+        pc++;
     }
 }
