@@ -1,0 +1,28 @@
+#include<iostream>
+#include<iomanip>
+#include<stdio.h>
+using namespace std;
+
+int main()
+{
+int i,j,k;
+cout<<"Game board:\n";
+for(j=0;j<6;j++){
+    cout<<" "<<setw(2)<<"__";
+}
+cout<<endl;
+for(k=0;k<7;k++){
+  for(i=0;i<6;i++){
+    cout<<"|";
+    cout<<setw(2)<<"__";
+  }
+      cout<<"|";
+  cout<<endl;
+
+
+}
+cout<<"\n";
+
+return 0;
+}
+
