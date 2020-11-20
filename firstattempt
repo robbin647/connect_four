@@ -78,8 +78,8 @@ public:
         ChangeBoard(piece);
     }
     Piece* Getter(){
-        Piece pi[92];
-        for (int o=0;o<92;o++){
+        Piece pi[84];
+        for (int o=0;o<84;o++){
             pi[o]=Piece();
         }
           for (int i=0;i<2;i++){
