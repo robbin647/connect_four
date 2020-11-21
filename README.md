@@ -30,7 +30,8 @@ All source code of our game
                                            //Need to call isWin() again after 42 cells are filled, because a plyer may win at the 42nd ply
       }
     private:
-      <datatype> Board ;
+      <datatype> Board ;                   //Information about all pieces on the game board
+                                           //There may be more than one variables or objects to achieve this
   };
   ```
  
