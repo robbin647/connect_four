@@ -8,7 +8,7 @@
 //  GetAndSet.cpp
 //  Front end development
 //
-//  Created by QTN on 2020/11/19.
+//  Updated by QTN on 2020/11/22.
 //  @Copyright Reserved, QTN, 2020
 //
 
@@ -46,8 +46,8 @@ class Board {
 public:
     Board(){
         for (int i=0;i<2;i++){
-            for (int j=0;j<7;j++){
-                for (int z=0;z<6;z++){
+            for (int j=0;j<6;j++){
+                for (int z=0;z<7;z++){
                     full[i][j][z]=false;
                 }
                 
@@ -63,8 +63,8 @@ public:
     }
     bool ifTerminates(){
         for (int i=0;i<2;i++){
-          for (int j=0;j<7;j++){
-              for (int z=0;z<6;z++){
+          for (int j=0;j<6;j++){
+              for (int z=0;z<7;z++){
                   if (full[i][j][z]==false){
                       return false;
                   }
@@ -83,8 +83,8 @@ public:
             pi[o]=Piece();
         }
           for (int i=0;i<2;i++){
-            for (int j=0;j<7;j++){
-                for (int z=0;z<6;z++){
+            for (int j=0;j<6;j++){
+                for (int z=0;z<7;z++){
                     if (full[i][j][z]==true){
                         int pos[2]={j,z};
                         pi[u]=Piece(i,pos);
@@ -101,7 +101,7 @@ public:
        return u;
    }
 private:
-    bool full [2][7][6];
+    bool full [2][6][7];
                 int u=0;
 
 };
@@ -109,20 +109,24 @@ private:
 int main()
 {
     Board b=Board();
-    int p [2] ={0,0};
-    int p1 [2]= {1,1};
-    int p2 [2]={3,3};
-    Piece a=Piece(1,p);
-    Piece c=Piece(1,p1);
-    Piece d=Piece(0,p2);
-    b.Setter(a);
-    b.Setter(c);
-    b.Setter(d);
+    int column;
+    cout<< "Please enter the column number:"<<endl;
+    while (cin>>column ){
+        int row=6;
+        while(b.getFull(0,row-1,column-1)){
+            row--;
+        }
+        int posi[2]={row-1,column-1};
+              Piece in=Piece(0,posi);
+              b.Setter(in);
+        
+    }
+ 
     for (int i=0;i<2;i++){
             cout<<"Player "<<i;
-        for (int j=0;j<7;j++){
+        for (int j=0;j<6;j++){
             cout<<endl;
-            for (int z=0;z<6;z++){
+            for (int z=0;z<7;z++){
                 cout <<b.getFull(i,j,z)<<" ";
                     
             }
