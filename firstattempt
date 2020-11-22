@@ -1,16 +1,4 @@
-//
-//  main.cpp
-//  Test2
-//
-//  Created by Apple on 2020/11/19.
-//
-//
-//  GetAndSet.cpp
-//  Front end development
-//
-//  Updated by QTN on 2020/11/22.
-//  @Copyright Reserved, QTN, 2020
-//
+
 
 #include <stdio.h>
 #include<iostream>
@@ -45,29 +33,27 @@ private:
 class Board {
 public:
     Board(){
-        for (int i=0;i<2;i++){
-            for (int j=0;j<6;j++){
-                for (int z=0;z<7;z++){
-                    full[i][j][z]=false;
-                }
+        for (int i=0;i<6;i++){
+            for (int j=0;j<7;j++){
+                    full[i][j]=0;
+                
                 
             }
         }
         
     }
     void ChangeBoard(Piece piece){
-        full[piece.getPlayer()][piece.getPosition()[0]][piece.getPosition()[1]]=true;
+        full[piece.getPosition()[0]][piece.getPosition()[1]]=piece.getPlayer();
     }
-    bool getFull(int x, int y, int z){
-        return full[x][y][z];
+    int getFull(int x, int y){
+        return full[x][y];
     }
     bool ifTerminates(){
-        for (int i=0;i<2;i++){
-          for (int j=0;j<6;j++){
-              for (int z=0;z<7;z++){
-                  if (full[i][j][z]==false){
+        for (int i=0;i<6;i++){
+          for (int j=0;j<7;j++){
+                  if (full[i][j]==0){
                       return false;
-                  }
+                  
               }
           }
         }
@@ -77,19 +63,19 @@ public:
     void Setter (Piece piece){
         ChangeBoard(piece);
     }
+   
     Piece* Getter(){
-        Piece pi[84];
-        for (int o=0;o<84;o++){
+        Piece pi[42];
+        for (int o=0;o<42;o++){
             pi[o]=Piece();
         }
-          for (int i=0;i<2;i++){
-            for (int j=0;j<6;j++){
-                for (int z=0;z<7;z++){
-                    if (full[i][j][z]==true){
-                        int pos[2]={j,z};
-                        pi[u]=Piece(i,pos);
+          for (int i=0;i<6;i++){
+            for (int j=0;j<7;j++){
+                    if (full[i][j]!=0){
+                        int pos[2]={i,j};
+                        pi[u]=Piece(full[i][j],pos);
                         u++;
-                    }
+                    
                 }
                 
             }
@@ -101,7 +87,7 @@ public:
        return u;
    }
 private:
-    bool full [2][6][7];
+    int full [6][7];
                 int u=0;
 
 };
@@ -110,33 +96,33 @@ int main()
 {
     Board b=Board();
     int column;
+    int player;
+    cout<< "Please enter the player number"<<endl;
+    cin>> player;
     cout<< "Please enter the column number:"<<endl;
     while (cin>>column ){
         int row=6;
-        while(b.getFull(0,row-1,column-1)){
+        while(b.getFull(row-1,column-1)>0){
             row--;
         }
         int posi[2]={row-1,column-1};
-              Piece in=Piece(0,posi);
+              Piece in=Piece(player,posi);
               b.Setter(in);
-        
+            
     }
- 
-    for (int i=0;i<2;i++){
-            cout<<"Player "<<i;
-        for (int j=0;j<6;j++){
+    
+        for (int i=0;i<6;i++){
             cout<<endl;
-            for (int z=0;z<7;z++){
-                cout <<b.getFull(i,j,z)<<" ";
+            for (int j=0;j<7;j++){
+                cout <<b.getFull(i,j)<<" ";
                     
             }
             
         }
        cout<<endl;
         
-    }
-    cout<<endl;
     
+
     Piece* pc=b.Getter();
     for (int i=0;i<b.getLength();i++){
     
