@@ -42,7 +42,7 @@ public:
 					tmp = tmp->nsibling;
 				}
 			}
-			generateValue(n);
+			n->value = generateValue(n);
 		}
 	}
 	int generateValue(node* n) {
