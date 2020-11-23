@@ -98,7 +98,7 @@ if (((getFull(i,j)==getFull(i+1,j))&&(getFull(i+1,j)==getFull(i+2,j))&&(getFull(
            return getFull(i,i+3);
        }
     }
-      for (int i=6;i>=2;i--){
+      for (int i=7;i>=0;i--){
           if ((getFull(6-i,i)==getFull(6-(i-1),i-1))&&(getFull(6-(i-1),i-1)==getFull(6-(i-2),i-2))&&(getFull(6-(i-2),i-2)==getFull(6-(i-3),i-3))&&(getFull(6-i,i)!=0)){
               return getFull(6-i,i);
           }
@@ -160,10 +160,10 @@ int main()
     Board b=Board();
     int column;
     int player;
-    int pos1[2]={3,4};
-    int pos2[2]={2,5};
-    int pos3[2]={4,3};
-    int pos4[2]={1,6};
+    int pos1[2]={4,4};
+    int pos2[2]={5,3};
+    int pos3[2]={3,5};
+    int pos4[2]={2,6};
  
 
     b.Setter(Piece(1,pos1));
