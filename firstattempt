@@ -160,16 +160,16 @@ int main()
     Board b=Board();
     int column;
     int player;
-    int pos1[2]={4,4};
+/*    int pos1[2]={4,4};
     int pos2[2]={5,3};
     int pos3[2]={3,5};
-    int pos4[2]={2,6};
+    int pos4[2]={2,6};*/
  
 
-    b.Setter(Piece(1,pos1));
+ /*   b.Setter(Piece(1,pos1));
     b.Setter(Piece(1,pos2));
     b.Setter(Piece(1,pos3));
-    b.Setter(Piece(1,pos4));
+    b.Setter(Piece(1,pos4));*/
  
 
     cout<< "Please enter the player number"<<endl;
