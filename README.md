@@ -1,8 +1,16 @@
-# game
-All source code of our game
+# Connect four
+
+
+## For HW3 markers
+
+  + This game (Connect Four) is implemented in C++  
+  + Below is a description of our source code:  
+    - main.cpp is where the program starts, with the function of printing game boards and asking for user inputs
+    - gameTree.cpp is a library source file in which we implement our own ```Tree``` class  
+
 ## Back end  
   Back end functionalities:  
-  1. Create a decision tree for the game (either created at the beginning of the game or created during the game i.e., dynamically)
+  1. Create a decision tree for the game (either created at the beginning of the game or created during the game, i.e. dynamically)
   2. Generate computer move
 
 ## Front end  
