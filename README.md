@@ -7,6 +7,7 @@
   + Below is a description of our source code:  
     - main.cpp is where the program starts, with the function of printing game boards and asking for user inputs
     - gameTree.cpp is a library source file in which we implement our own ```Tree``` class  
+    - Board.cpp is another library source file where we define our own ```Board``` class  
 
 ## Back end  
   Back end functionalities:  
